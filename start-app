@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Application is starting..."
+
+default_app_name="Spring"
+echo "Application name is ${default_app_name}!"
+
+value=25
+
+#      0 1  2  3   4    5
+array=(1 5 22 190 1240 2050)
+echo "${array[2]}"
+echo "${array[@]}"
+echo "${#array[@]}"
+array[2]=222
+echo "${array[@]}"
+array+=(10999 34)
+echo "${array[@]}"
+
+echo "Enter application name:"
+read app_name
+
+echo "New application name is ${app_name}!"
