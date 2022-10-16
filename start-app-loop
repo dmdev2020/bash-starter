@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# for
+for key in ~/keys/id_rsa* ; do
+    echo "Key file: ${key}"
+    cat "${key}"
+done
+
+files=(loga logb logc logcc)
+for file in "${files[@]}" ; do
+    if [[ -f "${file}" ]]; then
+        ls -l "${file}"
+    else
+        echo "File does not exist: ${file}"
+        echo "Do you want to create this file? y/n"
+        read createFileAnswer
+        if [[ "${createFileAnswer}" = "y" ]]; then
+            touch "${file}"
+        fi
+    fi
+done
+
+array=(5 90 83 23 67)
+for value in "${array[@]}" ; do
+    echo "For each loop: ${value}"
+done
+
+for (( i = 0; i < "${#array[@]}"; i++ )); do
+    echo "Index value: ${i}. Array value: ${array[i]}"
+done
+
+# until
+counter=10
+until (( counter <= 0 )); do
+    echo "Counter value: ${counter}"
+#    counter=$(( counter - 1 ))
+    (( counter-- ))
+done
+
+# while
+while (( counter > 0 )); do
+    echo "Counter value: ${counter}"
+#    counter=$(( counter - 1 ))
+    (( counter-- ))
+done
+
+#if
+value=-9
+if (( value > 0 )); then
+    echo "${value} is positive"
+elif (( value == 0 )); then
+    echo "${value} is zero"
+else
+    echo "${value} is negative"
+fi
